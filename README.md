@@ -1,1 +1,1 @@
-[DEMO](pt-tic-tac-toe.netlify.app)
+[DEMO](https://pt-tic-tac-toe.netlify.app/)
