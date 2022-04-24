@@ -1,0 +1,188 @@
+:root {
+    --test1: #14BDAC;
+    --test1-dark: #0DA192;
+
+    --dark: #1E2633;
+}
+
+@keyframes press {
+    0% {
+        opacity: 0;
+    }   
+    25% {
+        opacity: 0.15;
+    }
+    60% {
+        opacity: 0.3;
+    }
+    85% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes winner {
+    0% {
+        opacity: 0;
+        color: rgb(58, 95, 29);
+        transform: scale(1);
+    }   
+    50% {
+        opacity: 0.4;
+        color: rgb(78, 126, 39);
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        color: rgb(140, 246, 53);
+        transform: scale(1.4);
+    }
+}
+
+@font-face {
+    font-family: 'Yellow-Candy';
+    src:url('Yellow-Candy.ttf.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'candyshopregular';
+    src: url('andyshop-webfont.woff2') format('woff2'),
+         url('candyshop-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "font";
+    src: url("../candy.woff");
+}
+
+body {
+    background-color: var(--dark);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.overlay {
+    display: block;
+    pointer-events: none; 
+    position:absolute; 
+    width:60%; 
+    height:500px; 
+    top:0; 
+    left:20%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 65vh;
+
+}
+
+.grid {
+    width: 500px;
+    height: 500px;
+
+    background-color: white;
+    border-radius: 10px;
+
+    padding-top: -5em;
+    margin: 0 auto;
+    background-color: #34495e;
+    color: #fff;
+    border: 6px solid #2c3e50;
+    border-radius: 10px;
+      
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 4.5em;
+    font-family: 'Yellow-Candy';
+
+    border: 6px solid #2c3e50;
+    border-radius: 2px;
+
+    transition: 1s all ease;
+}
+
+p {
+    font-size: 100px;
+    padding: 0;
+    margin: 0;
+    font-family: 'Yellow-Candy';
+
+    animation: .6s press;
+}
+
+.current {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Yellow-Candy'; 
+    letter-spacing: 2px;
+}
+
+.current.winner {
+    animation: .6s winner cubic-bezier(0.455, 0.030, 0.515, 0.955) forwards;
+}
+
+.btn-container {
+    width: 100%;
+
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#resetBtn {
+    background-color: #34495E;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 40px;
+    color: white;
+    font-size: 35px;
+    font-family: "Yellow-Candy";
+    letter-spacing: 2px;
+
+    transition: all .5s;
+}
+
+#resetBtn:hover {
+    background-color: #527597;
+
+}
+
+
+@media (max-width: 760px) {
+
+    .grid {
+        max-width: 90%;
+        height: 70%;
+    }
+
+    p {
+        font-size: 70px;
+    }
+
+}
